@@ -1,0 +1,184 @@
+body {
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.ui {
+	position: absolute;
+	display: none;
+	-webkit-user-select: none;
+	font-family: "verdana", sans-serif;
+	border: 3px solid #555;
+	border-radius: 5px;
+	color: #222;
+}
+.ui fieldset{
+	border: 3px solid #2e5869;
+	border-radius: 3px;
+	margin: 0;
+}
+.ui fieldset legend{
+	text-align: left;
+}
+.contentDiv{
+	position: relative;
+	display: inline-table;
+	width: 100%; height: 100%;
+	padding: 10px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.backgroundDiv{
+	position: absolute;
+	width: 100%; height: 100%;
+	border: 0px solid #fff;
+	border-radius: 2px;
+	background-color: #CCC;
+	opacity: 0.6;
+	box-shadow: 3px 4px 10px 5px #000;
+}
+#loadingDiv{
+	width: 400px;
+	height: 100px;
+	position: absolute;
+	top: 50%; left: 50%;
+	margin: -50 0 0 -200;
+}
+.button {
+	height: auto;
+	background-color: #FFE6BD;
+	border: 3px solid #F09600;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #573600;
+	white-space: nowrap;
+}
+.disabledButton{
+	opacity: 0.3;
+}
+#selectedItemInfoDiv .contentDiv .button{
+	width: 100%;
+	padding-left: 20px;
+	margin: 3px 0px;
+}
+#selectedItemInfoDiv .contentDiv #towerPurchaseButtons .button{
+	text-align: right;
+}
+.closeButton{
+	position: absolute;
+	right: -2;
+	top: -2;
+	padding: 0;
+	border: 0px solid #555;
+	border-radius: 3px;
+	background-color: transparent;
+}
+#storyDiv{
+	bottom: 10px; left: 10px; right: 10px;
+	height: 200px;
+	font-size: 25px;
+}
+#storyDiv .backgroundDiv{
+	opacity: 0.8;
+}
+#storyDiv .contentDiv{
+	color: #fff;
+}
+#storyDiv .button{
+	font-size: 20px;
+}
+#storyImageDiv{
+	bottom: 220px; top: 10px;
+}
+#storyImageDiv .contentDiv{
+	display: inline-block;
+	width: auto;
+}
+#storyImageDiv .contentDiv img{
+	height: 100%; width: auto;
+}
+#menuDiv{
+	position: absolute;
+	bottom: 0px; left: 50%;
+	margin: 0 0 100 -67;
+}
+#customGameDiv{
+	top: 50%; left: 50%;
+	margin: -150 0 0 -175;
+}
+#creditsDiv{
+	top: 50%; left: 50%;
+	margin: -77 0 0 -239;
+}
+#gameOverDiv{
+	top: 50%; left: 50%;
+	margin: -88 0 0 -75;
+}
+#victoryDiv{
+	top: 50%; left: 50%;
+	margin: -125 0 0 -60;
+}
+#settingsToggleDiv{
+	display: inline-table;
+	position: relative;
+	top: 7px;
+	padding: 2px;
+}
+#settingsToggleDiv:hover {
+	border: 2px solid #333;
+	border-radius: 4px;
+	padding: 0px;
+}
+#settingsToggleDiv div{
+	width: 15px;
+	border: 2px solid #F09600;
+	border-radius: 2px;
+	margin: 3px;
+}
+#settingsDiv{
+	position: absolute;
+	top: 50%; left: 50%;
+	margin: -136 0 0 -87;
+}
+#hudDiv{
+	top:10px; right: 10px;
+}
+#hudDiv .contentDiv{
+	padding: 0px 7px;
+}
+#hudCash{
+	vertical-align: middle;
+	font-size: 33px;
+	color: #FFBE24;
+	font-weight: bold;
+}
+.energyImg{
+	vertical-align: middle;
+}
+#selectedItemInfoDiv{
+	top: 10px; left: 10px;
+}
+#selectedItemInfoDetailDiv{
+	margin-top: 5px;
+}
+#selectedItemInfoDetailDiv .contentdiv{
+	text-align: left;
+	font-size: 12px;
+}
+.contentDiv td{
+	vertical-align: middle;
+}
+.keyboard{
+	border: 1px solid #000;
+	border-radius: 2px;
+	font-size: 11px;
+	background-color: #DDD;
+	box-shadow: inset -1px -1px 1px #999, inset 2px 2px 2px #fff;
+	padding: 0px 3px;
+}
+#selectedItemInfoDiv .keyboard{
+	position: absolute;
+	left: 16px;
+}
