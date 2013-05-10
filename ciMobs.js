@@ -166,7 +166,6 @@ ciMob.prototype.getInfo = function(){
 }
 
 ciMob.prototype.getInfoDetail = function(){
-	console.log(this);
 	var html = "Health: <span id='mobHpSpan'>" + this.hp + "</span>/" + this.maxHp + "<br>";
 	html += "Shield: " + this.shield + "<br>";
 	html += "Speed: " + this.speed + "<br>";
@@ -210,7 +209,6 @@ ciMob.prototype.move = function(time){
 		var raycaster = null;
 		var intersections = null;
 		if(this.mesh.position.z < -100){
-			console.log("mob fell off", this);
 			this.position.z = 0;
 			this.land(this.position);
 			remainingDistance = 0;

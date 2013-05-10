@@ -1281,7 +1281,7 @@ ci.prototype.startCustomGame = function(){
 	customLevel.story[0].theta = 0;
 	customLevel.story[0].cameraDistance = 2500;
 	customLevel.story[0].color = "#2d7b80";
-	customLevel.story[0].image = "images/story/instructions_web.svg";
+	customLevel.story[0].image = "images/instructions_web.svg";
 	customLevel.story[0].text = "Custom Game: " + this.maps[customLevel.mapIndex].name + " - ";
 	customLevel.story[0].text += customLevel.startingCash + "<img src='images/energy.png' class='energyImg'><br>";
 	customLevel.story[0].text += "Waves: " + this.waveSets[customLevel.waveSetIndex].name + "(" + (customLevel.timeBetweenWaves - 1) + "sec). ";
