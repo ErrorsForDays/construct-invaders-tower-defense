@@ -1,0 +1,94 @@
+<html lang="en">
+	<head>
+		<title>Construct Invaders Tower Defense</title>
+		<link href="style_ci.css" rel="stylesheet" type="text/css" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<div id="menuDiv" class="ui"><div class="backgroundDiv"></div>
+			<div class="contentDiv">
+				<button id="startButton" class="button">Story Mode</button><br>
+				<button id="customGameButton" class="button">Custom Game</button><br>
+				<button id="creditsButton" class="button">Credits</button><br>
+				<!--
+				<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				-->
+			</div>
+		</div>
+		<div id="storyDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="storyImageDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="selectedItemInfoDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div>
+			<div id="selectedItemInfoDetailDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		</div>
+		<div id="gameOverDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="victoryDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="customGameDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="settingsDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="mapeditorInstructionsDiv" class="ui"><div class="backgroundDiv"></div><div class="contentDiv"></div></div>
+		<div id="hudDiv" class="ui"><div class="backgroundDiv"></div>
+			<div class="contentDiv">
+				<span id="hudCash">0</span>
+				<img src="images/energy_big.png" class="energyImg">
+				<button id="hudWaveTimer" class="button">Start</button>
+				<div id="settingsToggleDiv">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div id="loadingDiv" class="ui" style="display: block"><div class="backgroundDiv"></div>
+			<div class="contentDiv">
+				<h1>Loading</h1>
+			</div>
+		</div>
+		<div id="creditsDiv" class="ui"><div class="backgroundDiv"></div>
+			<div class="contentDiv">
+				<H2>Construct Invaders</h2>
+				by <a href='http://www.github.com/errorsfordays'>github.com/errorsfordays</a><br><br>
+				Music courtesy of Kevin MacLeod<br>(www.smartsound.com/royalty-free-music/incompetech)<br>
+				Sounds from Leshy SFDesigner<BR>(www.leshylabs.com)<br>
+				and www.freesfx.co.uk and talkingwav.com<br>
+				Images from flickr.com/commons<br>
+				Icons from fatcow.com and wefunction.com/contact<br>
+				
+				<button id="hideCreditsButton" class="button">Back</button><br>
+			</div>
+		</div>
+		
+
+		<script src="js/three.57.js"></script>
+		<script src="js/stats.min.js"></script>
+		<script src="js/AnaglyphEffect.js"></script>
+		<script src="js/helvetiker_regular.typeface.js"></script>
+		<script src="js/crystal_italic.typeface.js"></script>
+		<script src="js/jquery-1.8.3.js"></script>
+		<script src="levels/level_0.js"></script>
+		<script src="levels/level_1.js"></script>
+		<script src="levels/level_2.js"></script>
+		<script src="levels/level_3.js"></script>
+		<script src="levels/level_4.js"></script>
+		<script src="ci.js"></script>
+		<script src="ciLevel.js"></script>
+		<script src="ciTower.js"></script>
+		<script src="ciProjectile.js"></script>
+		<script src="ciMobs.js"></script>
+		<script src="hexTile.js"></script>
+		<script>
+			window.addEventListener("load", function(event){$('#loadingDiv .contentDiv').empty().append("<h1>Generating</h1>"); document.game = {}; document.game = new ci(); document.game.postInit(document.game);});
+		</script>
+		<audio id="audio_cannon" src="sounds/cannon.wav" preload="auto"></audio>
+		<audio id="audio_gun" src="sounds/gun.wav" preload="auto"></audio>
+		<audio id="audio_buzz" src="sounds/buzz.wav" preload="auto"></audio>
+		<audio id="audio_pop" src="sounds/pop.wav" preload="auto"></audio>
+		<audio id="audio_gameover" src="sounds/gameover.mp3" preload="auto"></audio>
+		<audio id="audio_denied" src="sounds/denied.wav" preload="auto"></audio>
+		<audio id="audio_gun_cock" src="sounds/shotgun_cock.wav" preload="auto"></audio>
+		<audio id="audio_nextwave" src="sounds/nextwave.wav" preload="auto"></audio>
+		<audio id="audio_spark" src="sounds/energy_drain.wav" preload="auto"></audio>
+		<audio id="audio_victory" src="sounds/applause.wav" preload="auto"></audio>
+		<audio id="audio_menu_music" src="sounds/menu_darkest_child.mp3" preload="auto"></audio>
+	</body>
+</html>
+
