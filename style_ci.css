@@ -46,14 +46,31 @@ body {
 	margin: -50 0 0 -200;
 }
 .button {
+	position: relative;
 	height: auto;
-	background-color: #FFE6BD;
-	border: 3px solid #F09600;
+	color: #fef4e9;
+	border: 2px solid #da7c0c;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
 	border-radius: 5px;
 	font-size: 14px;
 	font-weight: bold;
-	color: #573600;
 	white-space: nowrap;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.button:hover{
+	text-decoration: none;
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+}
+.button:active{
+	position: relative;
+	top: 1px;
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
 }
 .disabledButton{
 	opacity: 0.3;
@@ -100,9 +117,18 @@ body {
 	height: 100%; width: auto;
 }
 #menuDiv{
+	display: block;
 	position: absolute;
-	bottom: 0px; left: 50%;
-	margin: 0 0 100 -67;
+	left: -1000%;
+}
+#menuDiv .contentDiv{
+	white-space: nowrap;
+}
+#menuDiv .contentDiv div{
+	display: inline-block;
+}
+#menuDiv .button{
+	width: 150px;
 }
 #customGameDiv{
 	top: 50%; left: 50%;
@@ -171,14 +197,24 @@ body {
 	vertical-align: middle;
 }
 .keyboard{
+	display: block;
 	border: 1px solid #000;
 	border-radius: 2px;
 	font-size: 11px;
+	color: #000;
 	background-color: #DDD;
 	box-shadow: inset -1px -1px 1px #999, inset 2px 2px 2px #fff;
 	padding: 0px 3px;
 }
 #selectedItemInfoDiv .keyboard{
 	position: absolute;
-	left: 16px;
+	left: 4px;
+}
+#hudDiv .button{
+	padding-right: 50px;
+}
+#hudDiv .keyboard{
+	position: absolute;
+	right: 2px;
+	top: 1px;
 }

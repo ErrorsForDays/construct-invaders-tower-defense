@@ -1041,7 +1041,7 @@ ciLevel.prototype.restart = function(){
 	this.timesBurned = 0;
 	this.spawningMobs = [];
 	this.allWavesAreOut = false;
-	$('#hudWaveTimer').empty().append("start");
+	$('#hudWaveTimer').empty().append("Start<span class='keyboard'>SPACE</span>");
 	this.game.cash = 0;
 	this.game.addCash(this.startingCash);
 	this.showStory(0);

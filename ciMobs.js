@@ -38,7 +38,7 @@ function ciMob(game, spawnTile){
 	this.nextPosition = new THREE.Vector3();
 	this.nextPosition.copy(spawnTile.position);
 	this.nextPositionIsTileCenter = true;
-	this.distanceTravelled = 0;
+	this.distanceTravelled = spawnTile.position.distanceTo(this.position);
 	this.distanceRemaining = 10000;
 	this.direction = 0;
 	this.moveTime = 0;
@@ -296,8 +296,8 @@ ciMob.prototype.move = function(time){
 				this.nextPosition.add(this.moveOffset);
 				this.nextPositionIsTileCenter = false;
 				this.distanceRemaining = ((this.pathToHomeBase.steps - 1) * 2 + 1) * this.game.tileRadius;
-				this.direction = (2*Math.PI/3 + this.pathToHomeBase.side * Math.PI/3)%(2*Math.PI);
 			}
+			this.direction = Math.atan2((this.nextPosition.y - this.position.y), (this.nextPosition.x - this.position.x)) - Math.PI/2;
 			var toNext = this.position.distanceTo(this.nextPosition);
 		}
 		this.distanceRemaining -= distance;
@@ -312,6 +312,7 @@ ciMob.prototype.move = function(time){
 		this.mesh.rotation.set(0, 0, 0);
 		this.mesh.rotation.z = this.direction;
 		this.mesh.rotation.x = -1*this.distanceTravelled/this.radius;
+		this.mesh.rotation.y = 0.25 * Math.sin(this.distanceTravelled/this.radius);
 	}
 	if(this.hpMesh != null){
 		this.hpMesh.position.set(this.mesh.position.x, this.mesh.position.y, this.mesh.position.z + this.radius * 1.5);
@@ -368,7 +369,7 @@ ciMob.prototype.ouchAmIDead = function(damage, ignoreShields){
 
 ciMob.prototype.getMesh = function(){
 	var mesh = new THREE.Mesh(this.geometry, this.material);
-	mesh.eulerOrder = "ZXY";
+	mesh.eulerOrder = "ZYX";
 	return mesh;
 }
 

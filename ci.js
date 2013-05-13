@@ -81,7 +81,7 @@ function ci(){
 	this.initSettingsDiv();
 	this.initSounds();
 	this.toggleMenuBackground(true);
-	$('#menuDiv, #logoDiv').toggle(true);
+	$('#menuDiv').css({"left":"50%", "bottom":"20px", "margin": "0 0 0 -" + ($('#menuDiv').width()/2) + "px"});
 };
 
 ci.prototype.postInit = function(gameObject){
@@ -214,8 +214,8 @@ ci.prototype.initMaterialSets = function(){
                                                         new THREE.MeshLambertMaterial({color: 0xFF0000, emissive: 0x550000, side: THREE.DoubleSide})]);	
 
 	this.materialSets[1] = {name: "Retro", materials: {}};
-	this.materialSets[1].materials.triangleDouble = new THREE.MeshBasicMaterial({color: 0xD81818, side: THREE.DoubleSide}); //triangle mobs
-	this.materialSets[1].materials.triangle = new THREE.MeshBasicMaterial({color: 0xD81818}); //triangle construct mobs
+	this.materialSets[1].materials.triangleDouble = new THREE.MeshBasicMaterial({color: 0x00FF00, side: THREE.DoubleSide}); //triangle mobs
+	this.materialSets[1].materials.triangle = new THREE.MeshBasicMaterial({color: 0x00FF00}); //triangle construct mobs
 	this.materialSets[1].materials.squareDouble = new THREE.MeshBasicMaterial({color: 0x00FF00, side: THREE.DoubleSide}); //square mobs
 	this.materialSets[1].materials.square = new THREE.MeshBasicMaterial({color: 0x00FF00}); //square construct mobs
 	this.materialSets[1].materials.edgeBarrier = new THREE.MeshLambertMaterial({color: 0x000000, emissive: 0xCB1ED4, side: THREE.DoubleSide});
@@ -369,7 +369,7 @@ ci.prototype.initSounds = function(){
 	this.sounds["pop"] = document.getElementById("audio_pop");
 	this.sounds["gameover"] = document.getElementById("audio_gameover");
 	this.sounds["denied"] = document.getElementById("audio_denied");
-	this.sounds["upgrade"] = document.getElementById("audio_gun_cock");
+	this.sounds["upgrade"] = document.getElementById("audio_upgrade");
 	this.sounds["nextwave"] = document.getElementById("audio_nextwave");
 	this.sounds["spark"] = document.getElementById("audio_spark");
 	this.sounds["victory"] = document.getElementById("audio_victory");
@@ -419,7 +419,8 @@ ci.prototype.toggleStats = function(onOffSwitch){
 
 ci.prototype.initEndingDivs = function(){
 	var html = "<h2>Game Over</h2>";
-	html += "<button class='button' onclick='" + this.JSName + ".restartLevel();'>Restart Level</button><BR>";
+	html += "<button class='button' onclick='" + this.JSName + ".restartLevel(false);'>Restart Level</button><BR>";
+	html += "<button class='button' onclick='" + this.JSName + ".restartLevel(true);'>Restart Level (skip story)</button><BR>";
 	html += "<button class='button' onclick='" + this.JSName + ".backToMenu();'>Back to Menu</button>";
 	$('#gameOverDiv .contentDiv').empty().append(html);
 
@@ -514,9 +515,10 @@ ci.prototype.initSettingsDiv = function(){
 ci.prototype.initWaves = function(){
 	this.waveSets = [];
 	this.waveSets.push({name: "Story Tutorial", waves: []});
-	this.waveSets[0].waves.push({spawnIndex: 0, mobs:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]});
+	this.waveSets[0].waves.push({spawnIndex: 0, separation: 1.5, mobs:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]});
+	this.waveSets[0].waves.push({spawnIndex: 0, separation: 1.2, mobs:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0]});
 	this.waveSets[0].waves.push({spawnIndex: 0, mobs:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0]});
-	this.waveSets[0].waves.push({spawnIndex: 0, separation: 0.7, mobs:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0]});
+	this.waveSets[0].waves.push({spawnIndex: 0, mobs:  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0]});
 	this.waveSets[0].waves.push({spawnIndex: 0, mobs:  [5, 5, 5, 5]});
 	this.waveSets[0].waves.push({spawnIndex: 0, mobs:  [5, 5, 5, 5, 5, 5, 5]});
 	this.waveSets[0].waves.push({spawnIndex: 0, mobs:  [0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5, 0, 0, 5, 5]});
@@ -526,12 +528,12 @@ ci.prototype.initWaves = function(){
 	this.waveSets[1].waves.push({spawnIndex: 0, separation: 0.8, mobs:  [0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5, 0, 0, 0, 5, 5, 5]});
 	this.waveSets[1].waves.push({spawnIndex: 0, separation: 5, mobs:  [1, 1, 1, 1]});
 	//10
-	this.waveSets[1].waves.push({spawnIndex: 1, separation: 3, mobs:  [1, 1, 1, 1, 1]});
+	this.waveSets[1].waves.push({spawnIndex: 1, separation: 4, mobs:  [1, 1, 1, 1, 1]});
 	this.waveSets[1].waves.push({spawnIndex: 1, separation: 3, mobs:  [1, 1, 1, 1, 1]});
 	this.waveSets[1].waves.push({spawnIndex: 1, separation: 0.8, mobs:  [0, 0, 0, 5, 5, 5, 1, 0, 0, 0, 5, 5, 5, 1, 0, 0, 0, 5, 5, 5, 1]});
-	this.waveSets[1].waves.push({spawnIndex: 1, separation: 2, mobs:  [1, 1, 1, 1, 1, 1, 1]});
-	this.waveSets[1].waves.push({spawnIndex: 1, separation: 2, mobs:  [1, 1, 1, 1, 1, 1, 1, 1]});
-	this.waveSets[1].waves.push({spawnIndex: 1, separation: 2, mobs:  [1, 1, 1, 1, 1, 1, 1, 1, 1]});
+	this.waveSets[1].waves.push({spawnIndex: 1, separation: 3, mobs:  [1, 1, 1, 1, 1, 1, 1]});
+	this.waveSets[1].waves.push({spawnIndex: 1, separation: 3, mobs:  [1, 1, 1, 1, 1, 1, 1, 1]});
+	this.waveSets[1].waves.push({spawnIndex: 1, separation: 3, mobs:  [1, 1, 1, 1, 1, 1, 1, 1, 1]});
 	this.waveSets[1].waves.push({spawnIndex: 2, mobs:  [1, 0, 5, 0, 1, 0, 5, 0, 1, 0, 5, 0, 1, 0, 5, 0, 1, 0, 5, 0, 0, 5, 0]});
 	this.waveSets[1].waves.push({spawnIndex: 2, separation: 0.8, mobs:  [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 5, 0, 0, 5, 0, 0]});
 	this.waveSets[1].waves.push({spawnIndex: 2, mobs: [2]});
@@ -1241,9 +1243,16 @@ ci.prototype.toggleSelectedTowerTargetingMethod = function(){
 	if(this.selectedItem.toggleTargetingMethod !== undefined) this.selectedItem.toggleTargetingMethod();
 }
 
-ci.prototype.restartLevel = function(){
+ci.prototype.restartLevel = function(skipStory){
 	this.level.restart();
 	$('#gameOverDiv, #settingsDiv').toggle(false);
+	if(skipStory){
+		this.level.hideStory();
+		this.cameraAimPoint.x = 0;
+		this.cameraAimPoint.y = 0;
+		this.tilt = 5;
+		this.updateCamera();
+	}
 }
 
 ci.prototype.backToMenu = function(){
