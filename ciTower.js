@@ -431,7 +431,7 @@ ciTower.prototype.setTile = function(tile){
 
 ciTower.prototype.getInfo = function(){
 	var html = "<b>" + this.INFO.title + "</b>";
-	html += "<button class='closeButton' onclick='" + this.game.JSName + ".unselectSelectedItem();'><img src='images/close.png' height='16' class='energyImg'></button><br>";
+	html += "<button class='closeButton' onclick='" + this.game.JSName + ".unselectSelectedItem();'><img src='images/close.svg' height='16' class='energyImg'></button><br>";
 	html += "<span id='towerPurchaseButtons'>";
 	html += this.getTowerPurchaseButtons();
 	html += "</span>";
@@ -482,7 +482,7 @@ ciTower.prototype.getInfoDetail = function(){
 	html += "Targeting:<br><button id='targetingMethodButton' class='button' onclick='" + this.game.JSName + ".toggleSelectedTowerTargetingMethod();'>";
 	html += "<span class='keyboard'>Tab</span>" + ciTower.prototype.TARGETING_METHOD_NAMES[this.targetingMethod];
 	html += "</button><br>";
-	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.png' height='16' class='energyImg'></button><br>";
+	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.svg' height='16' class='energyImg'></button><br>";
 	return html;
 }
 
@@ -618,7 +618,7 @@ ciHoloTower.prototype.noLongerSelected = function(){
 
 ciHoloTower.prototype.getInfoDetail = function(){
 	html =  "There's so much room for activities.<br>";
-	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.png' class='energyImg' height='16'></button>";
+	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.svg' class='energyImg' height='16'></button>";
 	return html;
 }
 
@@ -641,7 +641,7 @@ ciFoundationTower.prototype.getWeaponMesh = function(){ return null;}
 ciFoundationTower.prototype.getInfoDetail = function(){
 	var html = "Blocks enemies.<br>Nice and level.<br>";
 	html += this.game.energyImage + " spent: " + this.totalPrice + "<br>";
-	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.png' height='16' class='energyImg'></button>";
+	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.svg' height='16' class='energyImg'></button>";
 	return html;
 }
 
@@ -1135,7 +1135,7 @@ ciSolarpanelTower.prototype.fire = function(time, timeDelta){
 ciSolarpanelTower.prototype.getInfoDetail = function(){
 	html =  this.INFO.description + "<br>";
 	html += "Generates " + this.damage + this.game.energyImage + " every " + this.rateOfFire + " seconds.<br>";
-	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.png' class='energyImg' height='16'></button>";
+	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.svg' class='energyImg' height='16'></button>";
 	return html;
 }
 

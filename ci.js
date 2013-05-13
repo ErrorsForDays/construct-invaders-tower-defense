@@ -12,7 +12,7 @@ if(!window.requestAnimationFrame){
 
 function ci(){
 	this.JSName = "document.game";
-	this.energyImage = "<img src='images/energy.png' class='energyImg'>";
+	this.energyImage = "<img src='images/battery.svg' class='energyImg'>";
 	this.GAME_STATES = {MENU: 0, STORY: 1, SETUP: 2, PLAY: 3, PAUSED: 4, GAME_OVER: 5};
 	Object.freeze(this.GAME_STATES);
 	this.currentState = this.GAME_STATES.MENU;
@@ -1292,7 +1292,7 @@ ci.prototype.startCustomGame = function(){
 	customLevel.story[0].color = "#2d7b80";
 	customLevel.story[0].image = "images/instructions_web.svg";
 	customLevel.story[0].text = "Custom Game: " + this.maps[customLevel.mapIndex].name + " - ";
-	customLevel.story[0].text += customLevel.startingCash + "<img src='images/energy.png' class='energyImg'><br>";
+	customLevel.story[0].text += customLevel.startingCash + "<img src='images/battery.svg' class='bigEnergyImg'><br>";
 	customLevel.story[0].text += "Waves: " + this.waveSets[customLevel.waveSetIndex].name + "(" + (customLevel.timeBetweenWaves - 1) + "sec). ";
 	customLevel.story[0].text += this.allowedTowersSets[$('#allowedTowersSetSelect').val()].name + ".<br>";
 	customLevel.story[0].choices = [{storyIndex: -1, text: "Start"}];
