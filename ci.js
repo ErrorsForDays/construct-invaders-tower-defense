@@ -766,7 +766,8 @@ ci.prototype.tick = function(){
 					$('#victoryDivText').empty().append(html);
 					$('#nextLevelButton').empty().append("Continue to next level: " + levels[this.level.nextLevelIndex].name);
 				}
-				$('#victoryDiv').toggle(true);
+				var victoryWidth = $('#victoryDiv').width()/-2;
+				$('#victoryDiv').toggle(true).css({"margin-left":victoryWidth});
 				this.sounds["victory"].play();
 			}
 			if(mobs.length > 0){
@@ -1205,7 +1206,7 @@ ci.prototype.addCash = function(amount){
 	if(this.cash < 0){
 		this.currentState = this.GAME_STATES.GAME_OVER;
 		this.unselectSelectedItem();
-		$('#gameOverDiv').toggle(true);
+		$('#gameOverDiv').toggle(true).css({"margin-left":$('#gameOverDiv').width()/-2});
 		this.sounds["gameover"].play();
 	}
 }
@@ -1226,7 +1227,7 @@ ci.prototype.buyEvolution = function(evolutionIndex){
 
 ci.prototype.sellTower = function(){
 	if(this.selectedItem != null && this.selectedItem.constructor == ciTower){
-		this.addCash(this.selectedItem.totalPrice/2 - 10);
+		this.addCash(Math.max(0, this.selectedItem.totalPrice/2 - 10));
 		this.selectedItem.destroy();
 		this.unselectSelectedItem();
 		this.level.calculatePathsToHomeBase();

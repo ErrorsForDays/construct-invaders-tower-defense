@@ -161,7 +161,7 @@ ciMob.prototype.getInfo = function(){
         if(!this.game.showSelectedItemDetail){
                 html += "<button class='button' onclick='" + this.game.JSName + ".showSelectedItemDetail = true; " + this.game.JSName + ".showSelectedItemInfo();'>Show Detail</button>";
         }
-        html += "<button class='closeButton' onclick='" + this.game.JSName + ".unselectSelectedItem();'><img src='images/close.png' height='16' class='energyImg'></button>";
+        html += "<button class='closeButton' onclick='" + this.game.JSName + ".unselectSelectedItem();'><img src='images/close.svg' height='16' class='energyImg'></button>";
         return html;
 }
 
@@ -169,7 +169,7 @@ ciMob.prototype.getInfoDetail = function(){
 	var html = "Health: <span id='mobHpSpan'>" + this.hp + "</span>/" + this.maxHp + "<br>";
 	html += "Shield: " + this.shield + "<br>";
 	html += "Speed: " + this.speed + "<br>";
-	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.png' height='16' class='energyImg'></button>";
+	html += "<button class='closeButton' onclick='" + this.game.JSName + ".showSelectedItemDetail = false; " + this.game.JSName + ".showSelectedItemInfo();'><img src='images/close.svg' height='16' class='energyImg'></button>";
 	return html;
 }
 
