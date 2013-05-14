@@ -803,15 +803,9 @@ ci.prototype.tick = function(){
 			if(sparks.length > 0){
 				this.level.particleSystem.material.color.g = 0.15 + 0.85 * Math.sin(time/100);
 				this.level.particleSystem.material.color.b = 0.9 + 0.1 * Math.sin(time/100);
-				if(timeDelta < this.tickTimelimit){
-					for(var i in sparks){
-						sparks[i].moveTime += timeDelta;
-						sparks[i].move();
-					}
-				}else{
-					for(var i in sparks){
-						sparks[i].moveTime += timeDelta;
-					}
+				for(var i in sparks){
+					sparks[i].moveTime += timeDelta;
+					sparks[i].move();
 				}
 			}
 		case this.GAME_STATES.SETUP:
