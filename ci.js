@@ -1031,8 +1031,10 @@ ci.prototype.updateCamera = function(){
 ci.prototype.onKeyDown = function(event){
 	switch(event.keyCode){
 		case 16: 	this.isShiftDown = true;
-				if(this.selectedItem != null && this.selectedItem.rangeMesh !== undefined && this.selectedItem.rangeMesh != null) this.selectedItem.rangeMesh.visible = true;
-				this.materialSets[this.level.materialSetIndex].materials.range2.opacity = 0;
+				if(this.currentState == this.GAME_STATES.PLAY && this.selectedItem != null && this.selectedItem.rangeMesh !== undefined && this.selectedItem.rangeMesh != null){
+					this.selectedItem.rangeMesh.visible = true;
+					this.materialSets[this.level.materialSetIndex].materials.range2.opacity = 0;
+				}
 				break;
 		case 17: 	if(this.currentState == this.GAME_STATES.PLAY || this.currentState == this.GAME_STATES.SETUP){
 					this.level.pathsMesh.position.set(0, 0, 0);
