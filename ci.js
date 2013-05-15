@@ -478,7 +478,7 @@ ci.prototype.initCustomGameDiv = function(){
 	html = "<h2>Using the Map Editor</h2>";
 	html += "<img src='http://i.imgur.com/EVxmGRu.png'><br>";
 	html += "Once you have designed a map, turn it into a Construct Invaders level by adding game entities. The game entity values recognized by Construct Invaders are: 0: Border, 1: Player home, 2-5: Construct spawn ponts, 6-9: Trees, 10: Fire hydrant, 11: Mailbox.";
-	html += "<br><a href='http://errorsfordays.github.com/basic-hex-map-editor/' target='_blank'>Open map editor in a new window</a><br>";
+	html += "<br><a href='http://errorsfordays.github.io/basic-hex-map-editor/' target='_blank'>Open map editor in a new window</a><br>";
 	html += "<button class='button' onClick=\"$('#mapeditorInstructionsDiv').toggle(false);$('#customGameDiv').toggle(true);\">Back</button>";
 	$('#mapeditorInstructionsDiv .contentDiv').empty().append(html);
 }
