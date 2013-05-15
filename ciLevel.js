@@ -57,8 +57,7 @@ function ciLevel(game, tileRadius, nextLevelObject) {
 		hexTile.prototype.tiles[0].destroy();
 	}
 	
-
-	this.logWaveStats();
+	//this.logWaveStats();
 }
 ciLevel.prototype.levelOfDetail = {TERRAIN: 0, SPLIT: 1, WALL: 2, PILLAR: 3, GAME_ENTITIES: 4};
 
